@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 var username = "foo";
 var password = "bar";
 
+app.get('/', function(req,res){
+  res.send({confirm: 'the server is working'})
+});
+
 app.post('/login', function(req, res) {
   var checkUsername = req.body.username == username ? username : 'Wrong username';
   var checkPassword = req.body.password == password ? password : 'Wrong password';
