@@ -14,11 +14,12 @@ app.get('/', function(req,res){
 });
 
 app.post('/login', function(req, res) {
-  var checkUsername = req.body.username == username ? username : 'Wrong username';
+  var checkUsername = req.body.email == email ? email : 'Wrong email';
   var checkPassword = req.body.password == password ? password : 'Wrong password';
   res.json({
-    username: checkUsername,
-    password: checkPassword
+    email: checkUsername,
+    password: checkPassword,
+    userid: 'ABC321'
   });
 });
 
