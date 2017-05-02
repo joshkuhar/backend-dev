@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 
 // app.use(bodyParser.json(urlncoded({extended: false}));
 
-var username = "foo";
+var email = "foo";
 var password = "bar";
 
 app.get('/', function(req,res){
