@@ -6,22 +6,24 @@ app.use(bodyParser.json());
 
 // app.use(bodyParser.json(urlncoded({extended: false}));
 
-var email = "foo";
-var password = "bar";
+var runs = [
+  {
+    date: 'June 29',
+    name: `Morgan's Pier`,
+    address: '221 N Christopher Columbus Blvd',
+    lat: 39.955033,
+    lng: -75.138913
+  }
+]
 
 app.get('/', function(req,res){
   res.send({confirm: 'the server is working'})
 });
 
-app.post('/login', function(req, res) {
-  var checkUsername = req.body.email == email ? email : 'Wrong email';
-  var checkPassword = req.body.password == password ? password : 'Wrong password';
-  res.json({
-    email: checkUsername,
-    password: checkPassword,
-    userid: 'ABC321'
-  });
-});
+app.get('/runs', function(req, res){
+  res.status(200).json(runs[0])
+})
+
 
 app.use('*', function(req, res) {
   res.status(404).json({
